@@ -178,6 +178,30 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Show/hide form fields based on visit type
+const visitType = document.getElementById('visitType');
+const cultoOptions = document.getElementById('cultoOptions');
+const horarioLivreOptions = document.getElementById('horarioLivreOptions');
+
+visitType.addEventListener('change', function() {
+    if (this.value === 'culto') {
+        cultoOptions.style.display = 'block';
+        horarioLivreOptions.style.display = 'none';
+        document.getElementById('preferredEvent').required = true;
+        document.getElementById('customTime').required = false;
+    } else if (this.value === 'horario-livre') {
+        cultoOptions.style.display = 'none';
+        horarioLivreOptions.style.display = 'block';
+        document.getElementById('preferredEvent').required = false;
+        document.getElementById('customTime').required = true;
+    } else {
+        cultoOptions.style.display = 'none';
+        horarioLivreOptions.style.display = 'none';
+        document.getElementById('preferredEvent').required = false;
+        document.getElementById('customTime').required = false;
+    }
+});
+
 // Form Validation and WhatsApp Integration
 const visitForm = document.getElementById('visitForm');
 
@@ -192,7 +216,9 @@ visitForm.addEventListener('submit', function(e) {
     const name = document.getElementById('name').value.trim();
     const address = document.getElementById('address').value.trim();
     const phone = document.getElementById('phone').value.trim();
-    const preferredTime = document.getElementById('preferredTime').value;
+    const visitTypeValue = document.getElementById('visitType').value;
+    const preferredEvent = document.getElementById('preferredEvent').value;
+    const customTime = document.getElementById('customTime').value.trim();
     const message = document.getElementById('message').value.trim();
     
     // Validation
@@ -208,13 +234,31 @@ visitForm.addEventListener('submit', function(e) {
         isValid = false;
     }
     
-    if (!preferredTime) {
-        showError('preferredTime', 'Por favor, selecione um horário');
+    if (!visitTypeValue) {
+        showError('visitType', 'Por favor, selecione o tipo de visita');
+        isValid = false;
+    }
+    
+    if (visitTypeValue === 'culto' && !preferredEvent) {
+        showError('preferredEvent', 'Por favor, selecione um evento');
+        isValid = false;
+    }
+    
+    if (visitTypeValue === 'horario-livre' && !customTime) {
+        showError('customTime', 'Por favor, informe seu horário disponível');
         isValid = false;
     }
     
     if (!isValid) {
         return;
+    }
+    
+    // Determine the time info
+    let timeInfo = '';
+    if (visitTypeValue === 'culto') {
+        timeInfo = preferredEvent;
+    } else {
+        timeInfo = customTime;
     }
     
     // Format WhatsApp message
@@ -226,7 +270,13 @@ visitForm.addEventListener('submit', function(e) {
         whatsappMessage += `*Telefone:* ${phone}\n`;
     }
     
-    whatsappMessage += `*Horário Preferido:* ${preferredTime}\n`;
+    if (visitTypeValue === 'culto') {
+        whatsappMessage += `*Tipo de Visita:* Participar de evento\n`;
+        whatsappMessage += `*Evento:* ${timeInfo}\n`;
+    } else {
+        whatsappMessage += `*Tipo de Visita:* Horário livre para conversar\n`;
+        whatsappMessage += `*Horário Disponível:* ${timeInfo}\n`;
+    }
     
     if (message) {
         whatsappMessage += `*Mensagem:* ${message}\n`;

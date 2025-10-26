@@ -222,17 +222,33 @@
                     <input type="tel" id="phone" name="phone">
                 </div>
                 <div class="form-group">
-                    <label for="preferredTime">Horário Preferido *</label>
-                    <select id="preferredTime" name="preferredTime" required>
-                        <option value="">Selecione um horário</option>
+                    <label for="visitType">Tipo de Visita *</label>
+                    <select id="visitType" name="visitType" required>
+                        <option value="">Selecione uma opção</option>
+                        <option value="culto">Participar de um culto/evento</option>
+                        <option value="horario-livre">Horário livre para conversar</option>
+                    </select>
+                    <span class="error-message"></span>
+                </div>
+                <div class="form-group" id="cultoOptions" style="display: none;">
+                    <label for="preferredEvent">Evento Preferido *</label>
+                    <select id="preferredEvent" name="preferredEvent">
+                        <option value="">Selecione um evento</option>
                         <option value="Domingo 19:00">Domingo 19:00 - Culto Dominical</option>
                         <option value="Quarta 19:30">Quarta 19:30 - Culto de Oração</option>
                         <option value="Sexta 19:00">Sexta 19:00 - Café dos Homens</option>
                         <option value="Quinta 19:00">Quinta 19:00 - Chá das Rosas</option>
                         <option value="Sábado 19:30">Sábado 19:30 - Culto de Jovens</option>
                         <option value="Segunda 19:00">Segunda 19:00 - Reunião de Intercessão</option>
-                        <option value="Outro">Outro horário</option>
                     </select>
+                    <span class="error-message"></span>
+                </div>
+                <div class="form-group" id="horarioLivreOptions" style="display: none;">
+                    <label for="customTime">Seu Horário Disponível *</label>
+                    <input type="text" id="customTime" name="customTime" placeholder="Ex: Segunda a Sexta das 19:00 às 20:00">
+                    <small style="display: block; margin-top: 0.5rem; color: var(--methodist-gray);">
+                        Informe os dias e horários que você tem disponibilidade
+                    </small>
                     <span class="error-message"></span>
                 </div>
                 <div class="form-group">
