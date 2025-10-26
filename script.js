@@ -116,8 +116,8 @@ function getEventsForDate(date, year, month, day) {
     
     // Quinta - Chá das Rosas (quinzenal, 19:00) + Semana de Oração (segunda semana, 06:30)
     if (dayOfWeek === 4) {
-        // Chá das Rosas a cada 15 dias (semanas 1 e 3)
-        if (weekOfMonth === 1 || weekOfMonth === 3) {
+        // Chá das Rosas a cada 15 dias (semanas 2 e 4)
+        if (weekOfMonth === 2 || weekOfMonth === 4) {
             eventsHTML += '<div class="event-dot biweekly">Chá 19h</div>';
         }
         if (weekOfMonth === 2) {
@@ -135,8 +135,8 @@ function getEventsForDate(date, year, month, day) {
     
     // Sábado - Culto de Jovens (quinzenal, 19:30)
     if (dayOfWeek === 6) {
-        // Culto de Jovens a cada 15 dias (semanas 2 e 4)
-        if (weekOfMonth === 2 || weekOfMonth === 4) {
+        // Culto de Jovens a cada 15 dias (semanas 1 e 3)
+        if (weekOfMonth === 1 || weekOfMonth === 3) {
             eventsHTML += '<div class="event-dot biweekly">Jovens 19:30</div>';
         }
     }
