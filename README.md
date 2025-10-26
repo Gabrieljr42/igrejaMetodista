@@ -106,7 +106,7 @@ O site é totalmente responsivo com breakpoints em:
 ## 🔗 Contato da Igreja
 
 - **Endereço**: Rua Dedine, 481, Siderurgia, Ouro Branco, MG
-- **WhatsApp**: (31) 98204-6279
+- **WhatsApp**: +55 31 8101-6863
 - **Instagram**: [@metodistaourobranco](https://www.instagram.com/metodistaourobranco/)
 
 ## 📝 Funcionalidades do Calendário

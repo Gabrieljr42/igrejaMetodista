@@ -285,7 +285,7 @@ visitForm.addEventListener('submit', function(e) {
     whatsappMessage += `\nAguardo retorno. Obrigado!`;
     
     // Generate WhatsApp URL
-    const phoneNumber = '5531982046279';
+    const phoneNumber = '5531981016863';
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
     
     // Open WhatsApp
