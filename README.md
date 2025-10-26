@@ -158,4 +158,5 @@ Desenvolvido com ❤️ para a comunidade da Igreja Metodista em Ouro Branco.
 ---
 
 **Última atualização**: Outubro 2025
+
 **Desenvolvido por João Gabriel**
