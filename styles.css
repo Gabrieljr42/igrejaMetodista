@@ -418,6 +418,12 @@ h1, h2, h3, h4, h5, h6 {
     gap: 2rem;
 }
 
+@media (max-width: 480px) {
+    .schedule-grid {
+        gap: 1.25rem;
+    }
+}
+
 .schedule-card {
     background-color: var(--white);
     border: 2px solid var(--methodist-gray);
@@ -475,6 +481,12 @@ h1, h2, h3, h4, h5, h6 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+}
+
+@media (max-width: 480px) {
+    .ministries-grid {
+        gap: 1.25rem;
+    }
 }
 
 .ministry-card {
@@ -731,6 +743,29 @@ h1, h2, h3, h4, h5, h6 {
         padding: 2rem 1.5rem;
     }
 
+    /* Cards tablet adjustments */
+    .schedule-card {
+        padding: 1.5rem;
+    }
+
+    .ministry-card {
+        padding: 1.75rem;
+    }
+
+    .ministry-icon {
+        font-size: 3rem;
+    }
+
+    /* Social links tablet */
+    .social-links {
+        gap: 1.5rem;
+        flex-wrap: wrap;
+    }
+
+    .social-link {
+        padding: 0.875rem 1.75rem;
+    }
+
     /* Calendar responsive */
     .calendar-container {
         padding: 1.5rem;
@@ -796,6 +831,58 @@ h1, h2, h3, h4, h5, h6 {
     .schedule-grid,
     .ministries-grid {
         grid-template-columns: 1fr;
+    }
+
+    /* Cards mobile adjustments */
+    .schedule-card {
+        padding: 1.25rem;
+    }
+
+    .schedule-time {
+        font-size: 1.3rem;
+    }
+
+    .schedule-desc {
+        font-size: 0.9rem;
+    }
+
+    .ministry-card {
+        padding: 1.5rem;
+    }
+
+    .ministry-icon {
+        font-size: 2.8rem;
+    }
+
+    .ministry-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .ministry-card p {
+        font-size: 0.9rem;
+    }
+
+    /* Social links mobile */
+    .social-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .social-link {
+        width: 100%;
+        max-width: 320px;
+        justify-content: center;
+        padding: 0.875rem 1.5rem;
+    }
+
+    .social-link span {
+        font-size: 0.9rem;
+    }
+
+    .social-link svg {
+        width: 28px;
+        height: 28px;
     }
 
     /* Calendar mobile */
